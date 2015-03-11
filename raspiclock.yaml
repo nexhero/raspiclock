@@ -1,0 +1,8 @@
+modules:
+  clock:
+    file: clock
+    update: 200
+    x0: 0
+    x1: 4
+    y0: 0
+    y1: 1
