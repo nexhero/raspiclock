@@ -3,12 +3,11 @@ import pango
 import gtk
 import time
 
-
 class Component:
     def __init__(self, ):
 
         f = gtk.Fixed()
-        self.L = gtk.Frame(label=None)
+        self.L = gtk.Frame()
         self.time = gtk.Label()
         self.day = gtk.Label()
         self.month = gtk.Label()

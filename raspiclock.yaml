@@ -3,6 +3,13 @@ modules:
     file: clock
     update: 200
     x0: 0
+    x1: 3
+    y0: 0
+    y1: 1
+  weather:
+    file: weather
+    update: 20000
+    x0: 3
     x1: 4
     y0: 0
     y1: 1

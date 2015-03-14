@@ -13,7 +13,7 @@ class Table():
         self.window.connect("destroy", lambda w: gtk.main_quit())
         self.window.set_size_request(320, 240)
         self.window.modify_bg(gtk.STATE_NORMAL, gtk.gdk.color_parse("black"))
-        self.table =  gtk.Table(4, 4, homogeneous = False)
+        self.table =  gtk.Table(4, 4)
         self.window.add(self.table)
     def show(self):
         self.window.show_all()
