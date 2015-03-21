@@ -18,7 +18,7 @@ modules:
     y0: 1
     y1: 2
   lolstatus:
-    update: 900
+    update: 60000
     x0: 2
     x1: 4
     y0: 1
