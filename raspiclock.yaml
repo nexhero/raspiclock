@@ -26,3 +26,6 @@ modules:
 
 config:
   systeminfo: http://raspiclock.com/sysinfo/
+  lol_summoner: nexhero
+  lol_key:  4b6141d1-344f-4b4b-841c-01deeb170f7a
+  lol_server: lan

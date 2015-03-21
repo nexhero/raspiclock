@@ -13,6 +13,8 @@ class Component:
 
         f = gtk.Fixed()
         self.L = gtk.Frame()
+        #self.L.set_shadow_type(gtk.SHADOW_NONE)
+
         self.MemPer = gtk.Label()
         self.MemFree = gtk.Label()
         self.MemTotal = gtk.Label()

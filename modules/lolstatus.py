@@ -8,18 +8,19 @@ _urlicon = "http://lkimg.zamimg.com/shared/riot/images/profile_icons/profileIcon
 summonername = "nexhero"
 class Component:
     def __init__(self, raspiclock):
-        self.lolkey = '4b6141d1-344f-4b4b-841c-01deeb170f7a'
+        summonername = raspiclock.getConfig("lol_summoner")
+        self.lolkey = raspiclock.getConfig("lol_key")
         self.L = gtk.Frame()
-
+        #self.L.set_shadow_type(gtk.SHADOW_NONE)
         f = gtk.Fixed()
         self.text = gtk.Label()
         self.status = gtk.Label()
         self.icon = gtk.Image()
 
-        w = RiotWatcher(self.lolkey, default_region = 'lan')
-        summoner = w.get_summoner(name='nexhero')
+        w = RiotWatcher(self.lolkey, default_region = raspiclock.getConfig("lol_server"))
+        summoner = w.get_summoner(name=summonername)
         urlicon =_urlicon + str(summoner['profileIconId']) +".jpg"
-        status = w.get_server_status('lan')
+        status = w.get_server_status(raspiclock.getConfig("lol_server"))
 
         iconres = urllib2.urlopen(urlicon)
         iconloader = gtk.gdk.PixbufLoader()
@@ -51,7 +52,7 @@ class Component:
         summoner = w.get_summoner(name='nexhero')
         urlicon =_urlicon + str(summoner['profileIconId']) +".jpg"
         status = w.get_server_status('lan')
-        
+
         iconres = urllib2.urlopen(urlicon)
         iconloader = gtk.gdk.PixbufLoader()
         iconloader.write(iconres.read())

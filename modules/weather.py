@@ -10,7 +10,9 @@ import string
 class Component:
     def __init__(self, raspiclock):
         f = gtk.Fixed()
-        L = gtk.Frame ()
+        self.L = gtk.Frame ()
+        #self.L.set_shadow_type(gtk.SHADOW_NONE)
+
         self.temp = gtk.Label()
         self.temp.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse("#FFFFFF"))
         self.temp.modify_font(pango.FontDescription("Coolvetica 20"))
@@ -29,9 +31,7 @@ class Component:
         f.put(self.temp, 5, 10)
         f.put(self.text, 5, 50)
 
-        L.add(f)
-        L.show_all()
-        self.L = L
+        self.L.add(f)
 
 
     def update(self):

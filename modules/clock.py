@@ -8,6 +8,8 @@ class Component:
 
         f = gtk.Fixed()
         self.L = gtk.Frame()
+        #self.L.set_shadow_type(gtk.SHADOW_NONE)
+
         self.time = gtk.Label()
         self.day = gtk.Label()
         self.month = gtk.Label()
