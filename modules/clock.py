@@ -4,7 +4,7 @@ import gtk
 import time
 
 class Component:
-    def __init__(self, ):
+    def __init__(self, raspiclock ):
 
         f = gtk.Fixed()
         self.L = gtk.Frame()
@@ -13,15 +13,15 @@ class Component:
         self.month = gtk.Label()
 
         self.time.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse("#FFFFFF"))
-        self.time.modify_font(pango.FontDescription("GE Inspira 48"))
+        self.time.modify_font(pango.FontDescription("Coolvetica 48"))
 
         self.day.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse("#FFA500"))
-        self.day.modify_font(pango.FontDescription("GE Inspira 20"))
+        self.day.modify_font(pango.FontDescription("Coolvetica 20"))
 
         self.month.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse("#FFA500"))
-        self.month.modify_font(pango.FontDescription("GE Inspira 20"))
+        self.month.modify_font(pango.FontDescription("Coolvetica 20"))
 
-        f.put(self.time, 10, 10)
+        f.put(self.time, 10, 5)
         f.put(self.day, 160, 10)
         f.put(self.month, 160, 40)
         self.L.add(f)

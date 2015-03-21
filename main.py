@@ -3,8 +3,9 @@ import os
 import pygtk
 import yaml
 import sys
-pygtk.require('2.0')
 import gtk
+import raspiclock
+#pygtk.require('2.0')
 
 class Table():
 
@@ -15,35 +16,28 @@ class Table():
         self.window.modify_bg(gtk.STATE_NORMAL, gtk.gdk.color_parse("black"))
         self.table =  gtk.Table(4, 4)
         self.window.add(self.table)
+    #    self.window.fullscreen()
     def show(self):
         self.window.show_all()
 
-def rcPath():
-    return os.path.dirname(__file__)
-
 
 def main():
-    path = rcPath()
-    path = path + "/raspiclock.yaml"
-    stream = file(path, "r")
-    try:
-        data = yaml.load(stream)
-    except ValueError:
-        sys.exit("Config file error")
-
+    rc = raspiclock.raspiclock()
+    data = rc.ModulesList()
     t = Table()
 
-    for e in data['modules']:
-        m = data['modules'][e]
-        f = m['file']
+    for key in data:
+        m = data[key]
+        f = key
         name = "modules." + f
         try:
             mod = __import__(name, fromlist=[''])
-            comp = mod.Component()
+            comp = mod.Component(rc)
             t.table.attach(comp.getL(), m['x0'], m['x1'], m['y0'], m['y1'],xoptions = gtk.FILL, yoptions = gtk.FILL)
             gtk.timeout_add(int(m['update']), comp.update)
-        except ValueError:
-            sys.exit( name + "Module Error")
+        except Exception as inst:
+            print inst
+            sys.exit( "Module Error " + name)
 
     t.show()
     gtk.main()
