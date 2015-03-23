@@ -12,8 +12,7 @@ class Component:
         self.url = raspiclock.getConfig("systeminfo")
 
         f = gtk.Fixed()
-        self.L = gtk.Frame()
-        #self.L.set_shadow_type(gtk.SHADOW_NONE)
+        self.L = gtk.Frame("Computer Information")
 
         self.MemPer = gtk.Label()
         self.MemFree = gtk.Label()
@@ -26,7 +25,7 @@ class Component:
         memFree = data['mem']['MemFree']
         memPer = (float(memFree)/float(memTotal))*100
         memPer = round(memPer,2)
-
+        memPer = 100 - memPer
         self.MemFree.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse("#FFFFFF"))
         self.MemFree.modify_font(pango.FontDescription("Coolvetica 14"))
         self.MemFree.set_text("Free: " + memFree + "kB")
@@ -54,6 +53,7 @@ class Component:
         memFree = data['mem']['MemFree']
         memPer = (float(memFree)/float(memTotal))*100
         memPer = round(memPer,2)
+        memPer = 100 - memPer
 
         self.MemFree.set_text("Free: " + memFree + "kB")
         self.MemTotal.set_text("Total: " + memTotal + "kB")

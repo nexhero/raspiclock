@@ -11,7 +11,6 @@ class Component:
     def __init__(self, raspiclock):
         f = gtk.Fixed()
         self.L = gtk.Frame ()
-        #self.L.set_shadow_type(gtk.SHADOW_NONE)
 
         self.temp = gtk.Label()
         self.temp.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse("#FFFFFF"))

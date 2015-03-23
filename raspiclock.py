@@ -1,7 +1,7 @@
 import yaml
 import os
 import sys
-
+import gtk
 class raspiclock:
     def __init__(self):
         self.path = os.path.dirname(__file__) + "/"
@@ -25,3 +25,4 @@ class raspiclock:
             print e
             sys.exit( "Error to acces " + key + " value")
         return value
+        
