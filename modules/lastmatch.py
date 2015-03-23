@@ -53,8 +53,8 @@ class Component:
         f.put(self.match, -80, 0)
         self.L.add(f)
     def update(self):
-        w = RiotWatcher(self.lolkey, default_region = raspiclock.getConfig("lol_server"))
-        summoner = w.get_summoner(name=summonername)
+        w = RiotWatcher(self.lolkey, default_region = 'lan')
+        summoner = w.get_summoner(name='nexhero')
         sumid= summoner['id']
         print sumid
         #urlicon =_urlicon + str(summoner['profileIconId']) +"_0.jpg"
@@ -77,7 +77,7 @@ class Component:
         iconloader = iconloader.scale_simple(393,65 , gtk.gdk.INTERP_NEAREST)
 
         self.match.set_from_pixbuf(iconloader)
-        
+
         return True
 
     def getL(self):
