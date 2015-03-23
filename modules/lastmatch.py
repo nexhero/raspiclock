@@ -36,7 +36,7 @@ class Component:
         champ =  match['matches'][last]['participants'][0]['championId']
         urlicon = _urlicon + str(champ) + "_0.jpg"
 
-        iconres = urllib2.urlopen(urlicon)
+        iconres = urllib2.urlopen("http://www.lolking.net/shared/images/champion_headers/412_0.jpg")
         iconloader = gtk.gdk.PixbufLoader()
         iconloader.write(iconres.read())
         iconloader.close()
@@ -57,7 +57,8 @@ class Component:
         summoner = w.get_summoner(name='nexhero')
         sumid= summoner['id']
         print sumid
-        #urlicon =_urlicon + str(summoner['profileIconId']) +"_0.jpg"
+        _urlicon = "http://www.lolking.net/shared/images/champion_headers/"
+        urlicon =_urlicon + str(summoner['profileIconId']) +"_0.jpg"
 
         match = w.get_match_history(sumid)
         #print json.dumps(match['matches'][0]['participants'][0]['championId'], sort_keys=True, indent=4, separators=(',', ': '))
@@ -67,6 +68,7 @@ class Component:
                 print last
 
         champ =  match['matches'][last]['participants'][0]['championId']
+        print urlicon
         urlicon = _urlicon + str(champ) + "_0.jpg"
 
         iconres = urllib2.urlopen(urlicon)
