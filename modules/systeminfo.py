@@ -12,7 +12,7 @@ class Component:
         self.url = raspiclock.getConfig("systeminfo")
 
         f = gtk.Fixed()
-        self.L = gtk.Frame("Computer Information")
+        self.L = gtk.Frame()
 
         self.MemPer = gtk.Label()
         self.MemFree = gtk.Label()

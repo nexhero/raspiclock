@@ -14,7 +14,7 @@ class Table():
         self.window.connect("destroy", lambda w: gtk.main_quit())
         self.window.set_size_request(320, 240)
         self.window.modify_bg(gtk.STATE_NORMAL, gtk.gdk.color_parse("black"))
-        self.table =  gtk.Table(4, 4)
+        self.table =  gtk.Table(4, 4, False)
         self.table.set_col_spacings(5)
         self.table.set_row_spacings(5)
         self.window.add(self.table)

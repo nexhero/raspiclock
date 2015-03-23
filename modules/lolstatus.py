@@ -10,7 +10,7 @@ class Component:
     def __init__(self, raspiclock):
         summonername = raspiclock.getConfig("lol_summoner")
         self.lolkey = raspiclock.getConfig("lol_key")
-        self.L = gtk.Frame("nexhero")
+        self.L = gtk.Frame()
 
         f = gtk.Fixed()
         self.text = gtk.Label()
